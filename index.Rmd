@@ -5,80 +5,169 @@ output: html_document
 
 ## Project title
 
-Give your project a concise, interesting title that summarizes the entirety of your project
+Data-Driven Analysis of Animal Adoption in the U.S
 
 ### Authors
 
-Names of your team members
+Victor Cheng, Le Luo, Rain Hou, Cindy Xu.
 
 ### Date
 
-Winter 2022
+May 17th, Spring 2024
 
 ### Abstract
 
-No more than three sentences that summarize your project. Focus on the very most important aspects. For example: (1) "Our main question is .... This question is important because .... To address the question, we will ...." (2) "We are concerned with ..., because .... To address this concern, we plan to ...." (3) "Consider that .... This is important because .... Accordingly, we plan to ...."
+This project aims to analyze the data of adoptable dogs in the US, collected from the PetFinder API on a single day. The focus will be on understanding the distribution and characteristics of these animals, and how these factors might influence their chances of adoption or being considered adoptable.
 
 ### Keywords
 
-3-5 keywords that summarize your project.
-(e.g., "Keywords: human physiology; bicycle exercise; Gen Z; times-series data")
+Adoptable Animals, Animal Shelter, Animal Welfare
 
 ### Introduction  
 
-Briefly introduce your project.  Include 3-5 research questions. What motivates the questions? Why are they important? (at least 200 words)
+In our daily lives, we still see stray pets on the streets, which sparked our interest in the current situation of animals in pet shelters. After searching the Internet, we found that until today, animal adoption is still a big topic that needs attention. We believe that our project can provide some help to improve the current situation of stray animals and shelter animals. The purpose of this project is to better understand the adoption of dogs and other animals in the United States. We are curious about how the characteristics of shelter animals affect their chances of being adopted, and how these characteristics varied by location. By analyzing the data of adoptable dogs, we can gain insight into the characteristics of these dogs and how they affect their chances of being adopted. We hope that the results of this project can help shelters and rescue agencies so that they can optimize their efforts to find homes for these dogs.
+
+The research questions are:
+
+What are the most common breeds among adoptable dogs?
+
+Is there a correlation between age or size and whether being considered adoptable?
+
+How do the characteristics of dogs vary across different states?
+
 
 ### Related Work  
 
-Describe your topic and related work in this space. You must include 3 citations to related work (URLs to similar work, high quality articles from the popular press, research papers, etc. ) Please use a standard citation style of your choice. (at least 200 words)
+Our topic is the adoption pattern across the US.
+
+One related work is about predicting and minimizing the animal length of stay in a shelter and euthanization. According to this research article, size, and adoption rates. The result of that study shows that younger and smaller animals tend to have higher adoption rates compared to older and larger ones, which is likely due to the perception that younger and smaller animals are easier to manage and adapt better to new environments. Citation: Bradley, Janae, and Suchithra Rajendran. “Increasing Adoption Rates at Animal Shelters: A Two-Phase Approach to Predict Length of Stay and Optimal Shelter Allocation - BMC Veterinary Research.” BioMed Central, BioMed Central, 5 Feb. 2021, bmcvetres.biomedcentral.com/articles/10.1186/s12917-020-02728-2#citeas.
+
+The second article we find discusses how a dog’s coat color influences its stay at a shelter and the likelihood of it being reclaimed. Brindle and multicolor dogs have the shortest length of stay (LOS) at shelters, while black dogs stay the longest. Coat color doesn’t significantly affect the time lost dogs spend at a shelter before being reclaimed, which typically happens within a day. The study suggests that black, brown, and brindle dogs are more likely to be abandoned, while fawn, black and tan, grey, and red dogs are more likely to be reclaimed if lost. Citation: Voslarova, Eva, et al. “Coat color of shelter dogs and its role in dog adoption.” Society & Animals, vol. 27, no. 1, 4 Jan. 2019, pp. 25–35, https://doi.org/10.1163/15685306-12341491.
+
+The topic of this related research paper is to examine the factors affecting the decision-making of prospective dog owners. It concludes that human-related factors like prior ownership experience, age, gender, income, and education impact preferences. Demographics such as gender, age, and income predict acquisition sources. Social trends affect breed choices. Dog-related factors like appearance and temperament significantly influence decisions, with appearance often prioritized over health, especially among certain breed owners like French Bulldogs. However, studies show limitations, with retrospective data and correlation-based findings lacking causality. Further research is needed to understand the interaction of these factors precisely and develop tools for responsible acquisition practices and promoting canine welfare. Citation: Holland, Katrina E. “Acquiring a Pet Dog: A Review of Factors Affecting the Decision-Making of Prospective Dog Owners.” Animals: An Open Access Journal from MDPI, U.S. National Library of Medicine, 28 Mar. 2019, www.ncbi.nlm.nih.gov/pmc/articles/PMC6523466/.
+
+
 
 ### The Dataset
 
 Where did you find the data? Please include a link to the data source  
+
+https://github.com/the-pudding/data/tree/master/dog-shelters
+
 Who collected the data?  
+
+Amber Thomas
+
 How was the data collected or generated?  
+
+All data except for description was collected using PetFinder’s V2 API method get-animals as described in their documentation. Since the V2 API doesn’t return the full animal description, the creator of this dataset was encouraged by the API maintainers to query the same animal profiles using the V1 API to acquire that information. Thus, the creator used all of the shelter ID’s returned from the V2 API calls to find all descriptions of dogs in each shelter and combine the two results by the animal’s unique ID.
+
 Why was the data collected?  
-How many observations (rows) are in your data?  
+
+The data was collected to provide a snapshot of the adoptable dogs in the US.
+
+How many observations (rows) are in your data? 
+
+There are 58,180 rows in this dataset.
+
 How many features (columns) are in the data?  
+
+There are 36 columns in this dataset.
+
 What, if any, ethical questions or questions of power do you need to consider when working with this data?  
+
+Ethical considerations include ensuring the privacy and confidentiality of the shelters and rescues that posted the dogs for adoption.
+
 What are possible limitations or problems with this data?   (at least 200 words)
+
+The dataset only represents some information about adoptable dogs in the US on a single day, which means that the data might not accurately represent the overall trend of adoptable dogs in the US. Seasonal variations, special events, or other temporal factors that might influence the number and characteristics of adoptable dogs are not captured in this dataset.
+
+Another potential limitation is the bias caused by the self-reported data. Because the information about the dogs is reported by the shelters or rescues that posted the dogs for adoption on PetFinder. The accuracy and completeness of this information depend on the individual shelters or rescues, which might vary widely. Some shelters or rescues might provide detailed and accurate information about the dogs, while others might provide minimal or inaccurate information. This could introduce biases in the data and affect the reliability of the analysis.
+
+Moreover, the dataset is limited to dogs listed on PetFinder. Although PetFinder is a popular platform, we all know that not all shelters or rescues might be using this platform. Therefore, there might be regional variations in the use of PetFinder, with some areas having a high proportion of their adoptable dogs listed on the platform, while others might use different platforms or methods for listing their adoptable dogs. This could limit the comprehensiveness of the data and introduce geographical biases in the analysis.
+
+In the end, because we found out that the number of animals being adopted is too small, the result we get from discovering the relationship between adoption rate and other characteristics might not be quite valid and representative.
+
+
 
 ### Implications
 
-Assuming you answer your research questions, briefly describe the expected or possible implications for technologists, designers, and policymakers. (at least 150 words)
+The potential impact of this study is manifold, starting with the enhancement of technology platforms. For individuals involved in the design and technology of platforms such as PetFinder, the findings from this study can provide important insights that shape the development of new features. These characteristics can be especially helpful in promoting animals that are often overlooked in the adoption process, such as older animals or specific breeds. The second is about strategies for public engagement and education. In addition to influencing policy and technology, insights from this research may also be critical in advancing public engagement initiatives. Educational campaigns can be designed to change public perceptions and encourage more diverse adoption options. By educating the community about the needs and benefits of adopting less popular breeds, these events may lead to a shift in adoption patterns and improved outcomes for these animals.
+
 
 ### Limitations & Challenges
-What challenges or limitations might you need to address with your project idea more broadly? Briefly discuss. (at least 150 words)
+
+First of all, the sample data of this study is too large, which requires everyone to spend a lot of time analyzing during the research process. Another very important point is that only the size of single-day data can be analyzed, and the trend cannot be analyzed. For example, Analyzing data from only a single day limits the ability to discern longer-term trends and patterns. This approach might miss seasonal variations, longer-term shifts in data, or emerging trends that develop over time. For a more comprehensive analysis, it’s crucial to include data spanning longer periods to capture a broader spectrum of influences and outcomes. There might be potential biases in the data, as it is based on the information reported by the shelters or rescues. Deliberately not providing data, these situations will lead to bias in the final results.The reliability of the data could be compromised by biases introduced through selective reporting or inconsistencies in how data is collected and reported by different shelters or rescues. Such biases can skew the analysis, leading to conclusions that may not accurately reflect the true situation. Ensuring data consistency and addressing potential sources of bias are essential for accurate research findings. Moreover, the size of the data of animals being adopted is too small, which is very likely to lead a result that is not representative and meaningful.
 
 ### Summary Information
 
-Write a summary paragraph of findings that includes the 5 values calculated from your summary information R script
+In the summary information list we created for this analysis, we find that we have 58180 observations in total. In our dataset, we have 16194 animals whose age is defined by "Senior", which is the maximum age in our dataset. We also have 46621 animals in shelter that have been spayed or neutered, 30294 male animals, 2146 animals that have special needs such as a long-term medical condition or particular temperament that requires extra care, and 42068 animals that are up to date on all of their vaccines and other shots. All the information is helpful for determining how they can impact the adoption rate and whether they are adoptable. By learning about summary information, we have a better understanding of the characteristics of animals in shelter and the potential biases in our further analysis.
 
 ### Table
 
-Include a table of aggregate information
+```{r}
+library(tidyverse)
+library(ggplot2)
+library(dplyr)
 
-Describe why you included the table and what information it reveals
+data <- read.csv("/Users/victor_cheng/Desktop/INFO201/allDogDescriptions.csv")
+
+summary_table <- data %>%
+  group_by(sex, age) %>%
+  summarise(Count = n()) %>%
+  arrange(sex, desc(Count))
+
+colnames(summary_table) <- c("Sex", "Age Category", "Count")
+
+print(summary_table)
+```
+
+This table is included to give us a better understanding of the age and sex distribution of the animals in our dataset. From this table, we can see which age categories are most common for each sex. This information could be useful for various analyses. For example, if we are studying the adoption rate of different sexes, knowing the distribution of age categories can help us understand the result by pointing out the bias that can caused by age.   
 
 ### Chart 1
 
-Include a chart
-
-Describe why you chose this chart and what information it reveals
-
-Here's an example of how to run an R script inside an RMarkdown file:
-
-``````{r, echo = FALSE, code = readLines("chart1_example.R")}
+```{r}
+ggplot(data = data, aes(x = age, fill = special_needs)) +
+  geom_bar(position = "dodge") +
+  labs(title = "The Correlation Between Age and Special Needs",
+       x = "Age",
+       y = "Special needs") +
+  scale_fill_manual(values = c("blue", "red")) +
+  theme_minimal()
 ```
+The ‘Adult’ category has the highest count, with most not having special needs (blue bar). The ‘Baby’ and ‘Young’ categories have fewer counts, with a small proportion having special needs (red bar). The ‘Senior’ category has the lowest overall counts, with a small proportion having special needs (red bar), but it has the largest proportion of special needs in senior comparing other catergories. It helps in understanding the distribution of special needs across different age groups. This can aid in planning resources and care for these groups. Potential adopters might have preferences or capabilities for caring for pets with special needs. This information can help match pets with suitable homes. Also, if a significant correlation is found, it might influence policies or practices in pet shelters. For example, shelters might implement special programs for the care of pets in age groups that have a higher proportion of special needs. I think there is a positive relationship between special needs and age. These two variables compoundly affect whether the dog is adoptable.
 
 ### Chart 2
 
-Include a chart
+```{r}
+ggplot(data, aes(x = age, fill = fixed)) + 
+  geom_bar() + 
+  labs(title = "Count of Animals by Age and Fixed Status",
+       x = "Age",
+       y = "Count",
+       fill = "Fixed Status")
+```
+The bar chart presents a clear relationship between the age of dogs in the shelter and their neutered status, revealing a trend where older dogs are more likely to be neutered compared to younger dogs. Specifically, baby dogs have the lowest rate of neutering, while senior dogs show the highest proportion of neutering. This observation is crucial for several reasons when studying the characteristics of shelter dogs in the US.
 
-Describe why you chose this chart and what information it reveals
+As dogs grow older, the likelihood of them being neutered increases. This could be due to shelters prioritizing neutering to prevent unwanted litters and to ensure the dogs' health, which would potentially increase the dog's chance of being adopted. The highest neutering rate among senior dogs could be attributed to the fact that many of these dogs have already been adopted by someone else before ending up in the shelter. 
+
+Understanding the neutering status of different age groups can help shelters devise better adoption strategies. For instance, promoting the adoption of neutered senior dogs might be easier due to the reduced health risks and the stability they bring to a home. Shelters can also use this data to allocate resources more effectively. Since younger dogs are less likely to be neutered, shelters might need to invest more in neutering programs for these age groups. Conversely, resources for senior dogs can be focused on their health care and adoption support.  Educational importance is another reason for this data. Highlighting that older dogs in shelters are more likely to be neutered can help reinforce the message that neutering is a responsible and necessary practice for pet owners.
 
 ### Chart 3
 
-Include a chart
+```{r}
+my_data <- data.frame(
+  status = c("adoptable", "not adoptable", "adoptable", "not adoptable", "adoptable"),
+  shots_current = c("yes", "no", "yes", "yes", "no")
+)
+contingency_table <- table(my_data$status, my_data$shots_current)
 
-Describe why you chose this chart and what information it reveals
+
+mosaicplot(contingency_table, 
+           main="Mosaic Plot of Status Category by Shots Current", 
+           xlab="Status", 
+           ylab="Shots Current", 
+           color=TRUE)
+```
+
+Analyzing the factors of "status" (adoptability) and "shots_current" (vaccination status) in relation to each other can provide valuable insights for various stakeholders, including animal shelters, rescue organizations, potential adopters, and public health authorities. Animals that are not up to date on their vaccinations may pose health risks to potential adopters or other animals in the shelter. Analyzing whether there is a correlation between these factors can inform shelter policies and procedures to ensure the welfare of both animals and adopters. Potential adopters often consider various factors when choosing an animal, including its health status. Analyzing whether vaccination status influences adoptability status can shed light on the preferences and priorities of adopters. For example, if adoptable animals that are up to date on their vaccinations are more likely to be adopted, shelters may prioritize vaccination efforts to increase adoption rates.
